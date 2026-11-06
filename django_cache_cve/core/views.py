@@ -12,5 +12,10 @@ def create_cache(request):
 @cache_page(20)
 @api_view(["GET"])
 def get_cache(request):
-    ret = cache.get("user_1")
-    return Response(ret)
+    user_id = request.headers['X-USER-ID']
+    print(f"user_id: {user_id}")
+    ret = cache.get("user_id")
+    return Response({
+        'user_id': ret,
+        'secret': f'secret_for_user_{user_id}'
+    })
