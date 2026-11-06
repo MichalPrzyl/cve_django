@@ -10,9 +10,14 @@ from django.views.decorators.vary import vary_on_headers
 def get_cache(request):
     print(f"get cache request, headers: {request.headers}")
     user_id = request.headers.get('X-USER-ID')
-    print(f"user_id: {user_id}")
-    ret = cache.get(user_id)
+    if user_id is None:
+        return Response({
+            "role": "ADMIN",
+            "token": "super-secret-token"
+        })
+
     return Response({
-        'user_id': ret,
-        'secret': f'secret_for_user_{user_id}'
+        "role": "GUEST",
+        "token": "NO DATA"
     })
+
