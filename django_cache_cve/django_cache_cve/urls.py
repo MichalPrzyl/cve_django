@@ -16,10 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from core.views import create_cache, get_cache
+from core.views import get_cache
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('create_cache', create_cache),
     path('get_cache', get_cache),
 ]
