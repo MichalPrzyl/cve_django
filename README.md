@@ -21,6 +21,9 @@ The problem occurs because the django doesn't differ header with value `''` and 
 
 That is why we witness <mark>Cross-User Data Leakage</mark>
 
+# OUTPUT
+
+<img src="output.png" width="900"> </img>
 
 # Disclaimer
 
