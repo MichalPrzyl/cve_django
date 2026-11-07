@@ -26,6 +26,9 @@ That is why we witness <mark>Cross-User Data Leakage</mark>
 
 It's `LOW SEVERITY` CVE but in specific situations it could lead to data disclousure and could be potentially dangerous.
 
+
+## CVSS Scores
+
 |CVSS version|Score|
 |----|----|
 |v2|2.6|
@@ -33,4 +36,12 @@ It's `LOW SEVERITY` CVE but in specific situations it could lead to data disclou
 |v4|2.3|
 
 
+# Spectacular example
+
 It's hard to replicate spectacular real-life example in development environment. That's because to fully understand this CVE we should implement reverse proxy responsible for authenticating. Forr example SSO with nginx which whould be the gate for whole app ecosystem. After settings ie. `X-User-SSO-Auth` header by nginx, we could differ responses in internal Django application. That provides scenario where cache keys collision could lead to real data leakage.
+
+
+# TODO
+
+- list volnerable Django versions
+- check grammar in readme
