@@ -1,4 +1,4 @@
-# CVE-2026-113593 Proof of Concept (POC)
+# Django CVE-2026-113593 Proof of Concept (POC)
 
 - https://www.tenable.com/cve/CVE-2026-113593
 
@@ -31,3 +31,6 @@ It's `LOW SEVERITY` CVE but in specific situations it could lead to data disclou
 |v2|2.6|
 |v3|3.1|
 |v4|2.3|
+
+
+It's hard to replicate spectacular real-life example in development environment. That's because to fully understand this CVE we should implement reverse proxy responsible for authenticating. Forr example SSO with nginx which whould be the gate for whole app ecosystem. After settings ie. `X-User-SSO-Auth` header by nginx, we could differ responses in internal Django application. That provides scenario where cache keys collision could lead to real data leakage.
